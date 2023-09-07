@@ -1,0 +1,59 @@
+USER
+(POST)/create-user
+BODY
+{
+    name:"",
+    email:"",
+    password:"",
+    image:"",
+}
+
+(GET)/users
+RESPONSE
+[]
+
+(GET)/user/:id
+RESPONSE
+{}
+
+(PUT)/update-user/:id
+Send BODY
+(DELETE)/delete-user/:id
+
+
+POST
+(POST)/create-post
+BODY
+{
+    authorId: Schema.Types.ObjectId, ref: "user"
+    content:""
+    image:""
+    space:""
+}
+(GET)/posts
+(GET)/post/:id
+(PUT)/update-post/:id
+(DELETE)/delete-account/:id
+
+
+COMMENT
+(POST)/post/:id/comment
+BODY
+{
+    postId:""
+    authorId: Schema.Types.ObjectId, ref: "user"
+    content:""
+}
+(GET)/post/:id/comments
+(DELETE)/delete-comment/:id
+
+REACTION
+(POST)/post/:id/reaction
+BODY
+{
+    postId:""
+    authorId: Schema.Types.ObjectId, ref: "user"
+    like:""
+    dislike:""
+}
+(GET)/post/:id/reactions
